@@ -72,6 +72,8 @@ public class Taller_De_Casos {
                                 System.out.println("Ingrese la edad del Asistente:");
                                 asistente.setEdad(Integer.parseInt(sc.nextLine()));
                                 estado = true;
+                            }catch(NumberFormatException e){
+                                System.out.println("Asegurece de ingresar solo numeros");
                             }catch(Exception e){
                                 System.out.println("Error: " + e.getMessage());
                             }
@@ -137,12 +139,8 @@ public class Taller_De_Casos {
                         System.out.println("Ingrese una opcion valida");
                 }
            }catch(NumberFormatException e){
-                System.out.println("Aasegurece de ingresar el formato correspondiente a las opciones");
+                System.out.println("Asegurece de ingresar el formato correspondiente a las opciones");
            }
         }while (opcion !=  5);
-    }
-        
-        
-    }
-    
+    }   
 }

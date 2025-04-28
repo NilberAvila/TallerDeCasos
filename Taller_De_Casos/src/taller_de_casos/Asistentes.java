@@ -19,6 +19,17 @@ public class Asistentes {
     private String Correo;
     private String Categoria;
 
+    public Asistentes(String Nombre, String Apellido_Paterno, String Apellido_Materno, int Edad, int Doc_Identidad, String Tipo_Doc, String Telefono, String Correo, String Categoria) {
+        this.Nombre = Nombre;
+        this.Apellido_Paterno = Apellido_Paterno;
+        this.Apellido_Materno = Apellido_Materno;
+        this.Edad = Edad;
+        this.Doc_Identidad = Doc_Identidad;
+        this.Telefono = Telefono;
+        this.Correo = Correo;
+    }
+    public Asistentes(){}
+
     public String getNombre() {
         return Nombre;
     }
@@ -93,7 +104,13 @@ public class Asistentes {
     }
 
     public void setTelefono(String Telefono){
-        this.Telefono = Telefono;
+        if (Telefono.isBlank() || Telefono.isEmpty()) {
+            this.Telefono = "Sin Telefono";
+        }
+        else{
+            this.Telefono = Telefono;
+
+        }
     }
 
     public String getCorreo() {
@@ -101,7 +118,12 @@ public class Asistentes {
     }
 
     public void setCorreo(String Correo) {
-        this.Correo = Correo;
+        if (Correo.isBlank() || Correo.isEmpty()) {
+            this.Correo = "Sin Correo";
+        }
+        else{
+            this.Correo = Correo;
+        }
     }
 
     public String getCategoria() {
@@ -111,9 +133,38 @@ public class Asistentes {
     public void setCategoria(String Categoria) {
         this.Categoria = Categoria;
     }
-    
-    
-    
-    
-    
+     @Override
+    public String toString() {
+        return "Nombre: " + Nombre + "  Apellido_Paterno: " + Apellido_Paterno + "  Apellido_Materno: " + Apellido_Materno + "  Edad: " + Edad + "  Doc_Identidad: " + Doc_Identidad + "    Tipo_doc: " + Tipo_Doc + "   Telefono: " + Telefono + "   Correo: " + Correo + "   Categoria: " + Categoria;
+    }
+    public String MostrarNombreCompletoAsistente(){
+        return this.Doc_Identidad + ": " + this.Nombre + " " + this.Apellido_Paterno + " " + this.Apellido_Materno;
+    }
+    public void Asignar_Categoria(int edad){
+        if (edad >= 0 && edad <= 10) {
+            this.Categoria = "Niño";
+        }
+        else if(edad <= 17){
+            this.Categoria = "Adolescente";
+        }
+        else if(edad <= 100){
+            this.Categoria = "Adulto";
+        }
+        else{
+            this.Categoria = "Patas arriba";
+        }
+    }
+    public void Identificar_TipoDoc(int NumDoc){
+        switch (String.valueOf(NumDoc).length()) {
+            case 8:
+                this.Tipo_Doc = "DNI";
+                break;
+            case 9:
+                this.Tipo_Doc = "Carnet de Extranjeria";
+                break;
+            default:
+                this.Tipo_Doc = "Te eliminaron de la RENIEC";
+                break;
+        }
+    }
 }

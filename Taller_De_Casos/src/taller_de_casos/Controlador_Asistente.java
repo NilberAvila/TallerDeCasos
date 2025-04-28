@@ -12,18 +12,18 @@ import java.util.ArrayList;
  */
 public class Controlador_Asistente 
 {
-    private static ArrayList<Asistente> ListaAsistentes = new ArrayList();    
-    public static void Agregar(Asistente NuevoAsistente){
+    private static ArrayList<Asistentes> ListaAsistentes = new ArrayList();    
+    public static void Agregar(Asistentes NuevoAsistente){
         ListaAsistentes.add(NuevoAsistente);
     }
     public static void MostrarAsistentes()
     {
-        for (Asistente a : ListaAsistentes) {
+        for (Asistentes a : ListaAsistentes) {
             System.out.println(a + "\n-------------------------------------------------------------------");
         }
     }
     public static void BuscarPorDocIdentidad(int Doc) {
-        for(Asistente a : ListaAsistentes){
+        for(Asistentes a : ListaAsistentes){
             if (a.getDoc_Identidad() == Doc) {
                 System.out.println("Se encontro a: " + a);
                 return;
@@ -34,7 +34,7 @@ public class Controlador_Asistente
         }
     }
     public static void Eliminar(int Doc){
-        for (Asistente a : ListaAsistentes) {
+        for (Asistentes a : ListaAsistentes) {
             if (a.getDoc_Identidad() == Doc){
                 System.out.println("Se Elimino a : " + a.MostrarNombreCompletoAsistente());
                 ListaAsistentes.remove(a);
@@ -44,7 +44,7 @@ public class Controlador_Asistente
                System.out.println("No existe el asistente");
             } 
         }
-        if (ListaAsistentes.size() == 0) {
+        if (ListaAsistentes.isEmpty()) {
             System.out.println("No hay asistentes para eliminar");
         }
     }
