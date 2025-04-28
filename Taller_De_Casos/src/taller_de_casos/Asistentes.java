@@ -23,7 +23,10 @@ public class Asistentes {
         return Nombre;
     }
 
-    public void setNombre(String Nombre) {
+    public void setNombre(String Nombre)throws Exception {
+        if (Nombre.isBlank()) {
+            throw new Exception("El nombre no puede ir vacio");
+        }
         this.Nombre = Nombre;
     }
 
@@ -31,7 +34,10 @@ public class Asistentes {
         return Apellido_Paterno;
     }
 
-    public void setApellido_Paterno(String Apellido_Paterno) {
+    public void setApellido_Paterno(String Apellido_Paterno)throws Exception {
+        if (Apellido_Paterno.isBlank()) {
+            throw new Exception("El apellido Paterno no puede ir vacio");
+        }
         this.Apellido_Paterno = Apellido_Paterno;
     }
 
@@ -39,7 +45,10 @@ public class Asistentes {
         return Apellido_Materno;
     }
 
-    public void setApellido_Materno(String Apellido_Materno) {
+    public void setApellido_Materno(String Apellido_Materno)throws Exception {
+        if (Apellido_Materno.isBlank()) {
+            throw new Exception("El apelido Materno no puede ir vacio");
+        }
         this.Apellido_Materno = Apellido_Materno;
     }
 
@@ -47,7 +56,10 @@ public class Asistentes {
         return Edad;
     }
 
-    public void setEdad(int Edad) {
+    public void setEdad(int Edad)throws Exception{
+        if (String.valueOf(Edad).isEmpty()) {
+            throw new Exception("No puede ir un valor vacio");
+        }
         this.Edad = Edad;
     }
 
@@ -55,7 +67,13 @@ public class Asistentes {
         return Doc_Identidad;
     }
 
-    public void setDoc_Identidad(int Doc_Identidad) {
+    public void setDoc_Identidad(int Doc_Identidad)throws Exception {
+        if (String.valueOf(Doc_Identidad).isBlank()) {
+            throw new Exception("Este campo no puede ir vacio");
+        }
+        else if(!(String.valueOf(Doc_Identidad).length() == 8 || String.valueOf(Doc_Identidad).length() == 9)){
+            throw new Exception("El Documento de identidad debe llevar 8 o 9 digitos");
+        }
         this.Doc_Identidad = Doc_Identidad;
     }
 
@@ -63,15 +81,18 @@ public class Asistentes {
         return Tipo_Doc;
     }
 
-    public void setTipo_Doc(String Tipo_Doc) {
-        this.Tipo_Doc = Tipo_Doc;
+    public void setTipo_Doc(String Tipo_doc)throws Exception {
+        if (String.valueOf(Doc_Identidad).isBlank()) {
+            throw new Exception("Este campo no puede ir vacio");
+        }
+        this.Tipo_Doc = Tipo_doc;
     }
 
     public String getTelefono() {
         return Telefono;
     }
 
-    public void setTelefono(String Telefono) {
+    public void setTelefono(String Telefono){
         this.Telefono = Telefono;
     }
 
